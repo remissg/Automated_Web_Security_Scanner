@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "author": "Joydip Maiti",
+    "bootcamp": "IBM SkillsBuild Cyber Security 2026 | BharatCares",
+    "scan_time_utc": "2026-10-20T14:38:01.277615+00:00",
+    "target_url": "https://rishtawaala.com/"
+  },
+  "summary": {
+    "grade": "D",
+    "score": 60,
+    "total_findings": 5,
+    "passed_headers": 1
+  },
+  "ssl_info": {
+    "subject": {
+      "commonName": "rishtawaala.com"
+    },
+    "issuer": {
+      "countryName": "US",
+      "organizationName": "Let's Encrypt",
+      "commonName": "YR2"
+    },
+    "expires": "Dec  3 18:55:44 2026 GMT",
+    "days_left": 44,
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "protocol": "TLSv1.3"
+  },
+  "tech_info": {
+    "Server": "Vercel"
+  },
+  "findings": [
+    {
+      "category": "Missing Security Header",
+      "severity": "HIGH",
+      "title": "Missing: Content Security Policy (CSP)",
+      "description": "Restricts external resource loading and provides robust defense against Cross-Site Scripting (XSS).",
+      "remediation": "Configure CSP header: Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'"
+    },
+    {
+      "category": "Missing Security Header",
+      "severity": "MEDIUM",
+      "title": "Missing: Clickjacking Defense (X-Frame-Options)",
+      "description": "Prevents unauthorized framing of the web application inside hostile iframes.",
+      "remediation": "Add header: X-Frame-Options: DENY or SAMEORIGIN"
+    },
+    {
+      "category": "Missing Security Header",
+      "severity": "LOW",
+      "title": "Missing: MIME Sniffing Protection (X-Content-Type-Options)",
+      "description": "Prevents web browsers from MIME-sniffing a response away from the declared content-type.",
+      "remediation": "Add header: X-Content-Type-Options: nosniff"
+    },
+    {
+      "category": "Missing Security Header",
+      "severity": "LOW",
+      "title": "Missing: Referrer Policy",
+      "description": "Protects private internal URL parameters from leaking to external referrers.",
+      "remediation": "Add header: Referrer-Policy: strict-origin-when-cross-origin"
+    },
+    {
+      "category": "Missing Security Header",
+      "severity": "LOW",
+      "title": "Missing: Browser Feature Permissions-Policy",
+      "description": "Controls browser access to sensitive device APIs (camera, microphone, geolocation).",
+      "remediation": "Add header: Permissions-Policy: geolocation=(), microphone=(), camera=()"
+    }
+  ],
+  "passed_checks": [
+    {
+      "header": "Strict-Transport-Security",
+      "value": "max-age=63072000",
+      "name": "HTTP Strict Transport Security (HSTS)"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# IBM SkillsBuild Cyber Security BootCamp 2026 | BharatCares
+# Project: Automated Web Application Security & Header Audit Scanner
+# Author: Joydip Maiti
+
+requests>=2.31.0
+urllib3>=2.0.0
+cryptography>=41.0.0
+python-docx>=1.0.0
